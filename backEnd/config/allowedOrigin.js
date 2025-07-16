@@ -1,7 +1,7 @@
 
 const allowedOrigins = [
   "http://localhost:5173", 
-  "https://book-base-kappa.vercel.app"
+  "https://book-base-mu.vercel.app"
   
 ];
 
