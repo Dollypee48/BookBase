@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = import.meta.env.VITE_API_URL || "https://book-base-swd1.vercel.app/api";
+const API = import.meta.env.VITE_API_URL || "https://book-base-swd1.vercel.app";
 
 const api = axios.create({
   baseURL: API,
