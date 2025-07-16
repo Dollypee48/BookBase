@@ -31,58 +31,60 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <div className="min-h-screen flex items-center justify-center bg-[#FFFDF7] text-[#3E3E3E] px-4">
       <form
         onSubmit={handleSubmit}
-        className="bg-gray-100 dark:bg-gray-800 p-8 rounded-xl shadow-md w-full max-w-md"
+        className="bg-white p-8 rounded-xl shadow-md w-full max-w-md border border-[#E9E3DA]"
       >
-        <h2 className="text-2xl font-bold mb-6 text-center">Register for BookBase</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-[#5A3E36]">
+          Register for BookBase
+        </h2>
 
-        <label className="block mb-2">Full Name</label>
+        <label className="block mb-2 text-sm font-medium text-[#7A5539]">Full Name</label>
         <input
           type="text"
           name="name"
           onChange={handleChange}
           value={formData.name}
-          className="w-full p-2 rounded bg-white dark:bg-gray-700 border dark:border-gray-600 outline-none mb-4"
+          className="w-full p-2 rounded bg-[#FAF7F2] border border-[#D4C3B3] outline-none mb-4 focus:ring-2 focus:ring-[#B0723B]"
           required
         />
 
-        <label className="block mb-2">Email</label>
+        <label className="block mb-2 text-sm font-medium text-[#7A5539]">Email</label>
         <input
           type="email"
           name="email"
           onChange={handleChange}
           value={formData.email}
-          className="w-full p-2 rounded bg-white dark:bg-gray-700 border dark:border-gray-600 outline-none mb-4"
+          className="w-full p-2 rounded bg-[#FAF7F2] border border-[#D4C3B3] outline-none mb-4 focus:ring-2 focus:ring-[#B0723B]"
           required
         />
 
-        <label className="block mb-2">Password</label>
+        <label className="block mb-2 text-sm font-medium text-[#7A5539]">Password</label>
         <div className="relative mb-4">
           <input
             type={showPassword ? "text" : "password"}
             name="password"
             onChange={handleChange}
             value={formData.password}
-            className="w-full p-2 rounded bg-white dark:bg-gray-700 border dark:border-gray-600 outline-none pr-10"
+            className="w-full p-2 rounded bg-[#FAF7F2] border border-[#D4C3B3] outline-none pr-10 focus:ring-2 focus:ring-[#B0723B]"
             required
           />
         </div>
 
-        <label className="block mb-2">Confirm Password</label>
+        <label className="block mb-2 text-sm font-medium text-[#7A5539]">Confirm Password</label>
         <div className="relative mb-6">
           <input
             type={showPassword ? "text" : "password"}
             name="confirmPassword"
             onChange={handleChange}
             value={formData.confirmPassword}
-            className="w-full p-2 rounded bg-white dark:bg-gray-700 border dark:border-gray-600 outline-none pr-10"
+            className="w-full p-2 rounded bg-[#FAF7F2] border border-[#D4C3B3] outline-none pr-10 focus:ring-2 focus:ring-[#B0723B]"
             required
           />
           <button
             type="button"
-            className="absolute top-2 right-2 text-sm"
+            className="absolute top-2 right-2 text-xs text-[#A07958]"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? "Hide" : "Show"}
@@ -91,14 +93,14 @@ export default function RegisterPage() {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition"
+          className="w-full bg-[#B0723B] text-white p-2 rounded hover:bg-[#945B2D] transition"
         >
           Register
         </button>
 
-        <p className="mt-4 text-sm text-center">
+        <p className="mt-4 text-sm text-center text-[#6E5B4E]">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-500 hover:underline">
+          <Link to="/login" className="text-[#B0723B] hover:underline font-medium">
             Login
           </Link>
         </p>

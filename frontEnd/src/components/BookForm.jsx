@@ -68,41 +68,41 @@ export default function BookForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
+      className="bg-[#FFFDF8] p-6 rounded-xl shadow-md border border-[#F1E6DA]"
     >
-      <h3 className="text-lg font-semibold mb-4">
-        {selectedBook ? "Edit Book" : "Add a Book"}
+      <h3 className="text-xl font-bold mb-6 text-[#6B3E26]">
+        {selectedBook ? "✏️ Edit Book" : "📖 Add a Book"}
       </h3>
 
       <div className="mb-4">
-        <label className="block mb-1">Title</label>
+        <label className="block mb-1 text-sm font-medium text-[#3B2F2F]">Title</label>
         <input
           name="title"
           value={formData.title}
           onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
+          className="w-full p-2 rounded border border-[#E4D8C4] bg-[#FFFDF8] focus:outline-none focus:ring-2 focus:ring-[#D4A373]"
           required
         />
       </div>
 
       <div className="mb-4">
-        <label className="block mb-1">Author</label>
+        <label className="block mb-1 text-sm font-medium text-[#3B2F2F]">Author</label>
         <input
           name="author"
           value={formData.author}
           onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
+          className="w-full p-2 rounded border border-[#E4D8C4] bg-[#FFFDF8] focus:outline-none focus:ring-2 focus:ring-[#D4A373]"
           required
         />
       </div>
 
       <div className="mb-4">
-        <label className="block mb-1">Status</label>
+        <label className="block mb-1 text-sm font-medium text-[#3B2F2F]">Status</label>
         <select
           name="status"
           value={formData.status}
           onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
+          className="w-full p-2 rounded border border-[#E4D8C4] bg-[#FFFDF8] focus:outline-none focus:ring-2 focus:ring-[#D4A373]"
         >
           <option value="to-read">To Read</option>
           <option value="read">Read</option>
@@ -110,7 +110,7 @@ export default function BookForm() {
       </div>
 
       <div className="mb-4">
-        <label className="block mb-1">Rating (1-5)</label>
+        <label className="block mb-1 text-sm font-medium text-[#3B2F2F]">Rating (1-5)</label>
         <input
           name="rating"
           type="number"
@@ -118,23 +118,23 @@ export default function BookForm() {
           max="5"
           value={formData.rating}
           onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
+          className="w-full p-2 rounded border border-[#E4D8C4] bg-[#FFFDF8] focus:outline-none focus:ring-2 focus:ring-[#D4A373]"
         />
       </div>
 
       <div className="mb-4">
-        <label className="block mb-1">Comment</label>
+        <label className="block mb-1 text-sm font-medium text-[#3B2F2F]">Comment</label>
         <textarea
           name="comment"
           value={formData.comment}
           onChange={handleChange}
-          className="w-full p-2 rounded bg-gray-100 dark:bg-gray-700 dark:border-gray-600"
+          className="w-full p-2 rounded border border-[#E4D8C4] bg-[#FFFDF8] focus:outline-none focus:ring-2 focus:ring-[#D4A373]"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+        className="w-full bg-[#A86432] text-white font-semibold py-2 rounded hover:bg-[#935328] transition shadow"
       >
         {selectedBook ? "Update Book" : "Add Book"}
       </button>
