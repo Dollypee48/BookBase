@@ -1,6 +1,7 @@
+// src/utils/api.js or wherever your axios config is
 import axios from "axios";
 
-const API = import.meta.env.VITE_API_URL || "https://book-base-swd1.vercel.app";
+const API = import.meta.env.VITE_API_URL;
 
 const api = axios.create({
   baseURL: API,

@@ -9,8 +9,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("bookbaseUser")) || null);
   const navigate = useNavigate();
 
-  const API = import.meta.env.VITE_API_URL || "https://book-base-swd1.vercel.app";
-
+  const API = import.meta.env.VITE_API_URL || "https://book-base-swd1.vercel.app/api";
+  
   const register = async (formData) => {
     try {
       const res = await axios.post(`${API}/auth/register`, formData);
