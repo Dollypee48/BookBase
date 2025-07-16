@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function HomePage() {
+export default function Homepage() {
   return (
     <div className="bg-[#FFFDF7] text-[#3E3E3E] flex flex-col min-h-screen">
       {/* 🌟 Hero Section */}
