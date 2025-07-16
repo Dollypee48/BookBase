@@ -1,13 +1,32 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
 
   if (isAuthPage) return null;
+
+  const scrollToAbout = (e) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      const aboutSection = document.getElementById("about-section");
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        const aboutSection = document.getElementById("about-section");
+        if (aboutSection) {
+          aboutSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300);
+    }
+  };
 
   return (
     <nav className="bg-[#FFF9F1] text-[#3B2F2F] shadow-sm px-4 py-3 sticky top-0 z-50 border-b border-[#EADFD4]">
@@ -30,12 +49,12 @@ export default function Navbar() {
               >
                 Dashboard
               </Link>
-              <Link
-                to="/about"
+              <button
+                onClick={scrollToAbout}
                 className="hover:text-[#A86432] transition-all duration-200"
               >
                 About
-              </Link>
+              </button>
               <button
                 onClick={logout}
                 className="text-[#B03C3C] hover:underline transition-all duration-200"
@@ -45,6 +64,12 @@ export default function Navbar() {
             </>
           ) : (
             <>
+              <button
+                onClick={scrollToAbout}
+                className="hover:text-[#A86432] transition-all duration-200"
+              >
+                About
+              </button>
               <Link
                 to="/login"
                 className="hover:text-[#A86432] transition-all duration-200"
@@ -59,7 +84,6 @@ export default function Navbar() {
               </Link>
             </>
           )}
-
         </div>
       </div>
     </nav>
