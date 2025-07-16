@@ -1,21 +1,24 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
+// src/context/AuthContext.jsx
+
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import api from "../utils/api";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("bookbaseUser")) || null);
+  const [user, setUser] = useState(() =>
+    JSON.parse(localStorage.getItem("bookbaseUser")) || null
+  );
   const navigate = useNavigate();
 
-  const API = import.meta.env.VITE_API_URL || "https://book-base-swd1.vercel.app/api";
-  
   const register = async (formData) => {
     try {
-      const res = await axios.post(`${API}/auth/register`, formData);
-      setUser(res.data.user);
-      localStorage.setItem("bookbaseUser", JSON.stringify(res.data.user));
+      const res = await api.post("/auth/register", formData);
+      const userData = res.data.user;
+      setUser(userData);
+      localStorage.setItem("bookbaseUser", JSON.stringify(userData));
       toast.success("Registered successfully!");
       navigate("/dashboard");
     } catch (err) {
@@ -25,9 +28,10 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (formData) => {
     try {
-      const res = await axios.post(`${API}/auth/login`, formData);
-      setUser(res.data.user);
-      localStorage.setItem("bookbaseUser", JSON.stringify(res.data.user));
+      const res = await api.post("/auth/login", formData);
+      const userData = res.data.user;
+      setUser(userData);
+      localStorage.setItem("bookbaseUser", JSON.stringify(userData));
       toast.success("Logged in successfully!");
       navigate("/dashboard");
     } catch (err) {
