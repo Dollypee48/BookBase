@@ -11,26 +11,54 @@ export default function Navbar() {
   if (isAuthPage) return null;
 
   return (
-    <nav className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white shadow px-4 py-3">
+    <nav className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white shadow-sm px-4 py-3 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold tracking-tight">
+        {/* Logo */}
+        <Link to="/" className="text-2xl font-extrabold tracking-tight hover:text-blue-600 dark:hover:text-blue-400 transition">
           📚 BookBase
         </Link>
 
-        <div className="flex items-center gap-4">
-          {user && (
+        {/* Right nav section */}
+        <div className="flex items-center gap-6 text-sm font-medium">
+          {user ? (
             <>
-              <Link to="/dashboard" className="hover:underline text-sm">
+              <Link
+                to="/dashboard"
+                className="hover:text-blue-600 dark:hover:text-blue-400 transition"
+              >
                 Dashboard
+              </Link>
+              <Link
+                to="/about"
+                className="hover:text-blue-600 dark:hover:text-blue-400 transition"
+              >
+                About
               </Link>
               <button
                 onClick={logout}
-                className="text-sm text-red-600 dark:text-red-400 hover:underline"
+                className="text-red-600 dark:text-red-400 hover:underline transition"
               >
                 Logout
               </button>
             </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="hover:text-blue-600 dark:hover:text-blue-400 transition"
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="hover:text-blue-600 dark:hover:text-blue-400 transition"
+              >
+                Register
+              </Link>
+            </>
           )}
+
+          {/* Theme toggle */}
           <ThemeToggle />
         </div>
       </div>
